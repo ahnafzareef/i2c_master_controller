@@ -1,0 +1,13 @@
+*.cache/
+*.hw/
+*.sim/
+*.runs/
+*.ip_user_files/
+*.gen/
+*.dcp
+*.jou
+*.log
+*.str
+*.wpc
+*.lpr
+.Xil/
