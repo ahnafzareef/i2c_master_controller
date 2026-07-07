@@ -41,4 +41,4 @@ Expected output: `RESULT: 6 passed, 0 failed`
 
 ## Notes
 
-The clock divider sets the SCL rate: `dvsr = f_sys / (4 × f_i2c)` — the 4 comes from the four phases per bit. At 100 MHz with dvsr = 250, SCL runs at 100 kHz (standard mode).
+The clock divider sets the SCL rate: `dvsr = f_sys / (4 × f_i2c)`, 4 comes from the four phases per bit.
