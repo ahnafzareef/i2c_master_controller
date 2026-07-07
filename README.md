@@ -1,12 +1,13 @@
 # I2C Master Controller
 
-An I2C master written in Verilog for the Arty S7-25 FPGA. No vendor IP — the state machine, timing, and bus control are all hand-written RTL.
+An I2C master written in Verilog for the Arty S7-25 FPGA
 
 ## How it works
 
 Each bit is split into **four clock phases**, so every SCL and SDA edge gets its own phase. SDA only changes while SCL is low and is sampled while SCL is high, which meets setup/hold timing by design instead of tuned delays.
 
-The bus is **open-drain**: the master only ever pulls a line low or releases it to the pull-up. It never drives high, so it can share the bus without contention. Start and stop conditions are generated as the one deliberate exception to the data rule — SDA moving while SCL is high.
+
+The bus is **open-drain**: the master only ever pulls a line low or releases it to the pull-up. It never drives high, so it can share the bus without contention. 
 
 Supported commands: **start, write, read, stop, restart**. Each byte transfer is 9 bits (8 data + acknowledge).
 
@@ -21,7 +22,7 @@ Supported commands: **start, write, read, stop, restart**. Each byte transfer is
 
 The testbench includes a fake I2C slave that address-matches, ACKs, and returns data on reads. It runs three tests with automatic pass/fail checks:
 
-1. **Write** — start, address + W, two data bytes, stop (checks each ACK)
+1. **Write** — start, address + W, two data bytes, stop
 2. **Wrong address** — expects a NACK from the bus
 3. **Read** — reads a byte back and checks it matches the slave's data
 
@@ -35,8 +36,8 @@ Expected output: `RESULT: 6 passed, 0 failed`
 ## Hardware
 
 - **Board:** Digilent Arty S7-25 (Spartan-7, xc7s25csga324-1)
-- **Toolchain:** Vivado 2025.2, Icarus Verilog for simulation
-- **Integration:** deployed as a memory-mapped peripheral on a MicroBlaze SoC with a C driver (in progress)
+- **Toolchain:** Vivado 2025.2
+- **Integration:** deployed as a memory-mapped peripheral on a MicroBlaze SoC with a C driver (Currently finishing the driver with MicroBlaze SOC)
 
 ## Notes
 
