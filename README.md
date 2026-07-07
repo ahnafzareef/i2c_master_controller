@@ -37,7 +37,7 @@ Expected output: `RESULT: 6 passed, 0 failed`
 
 - **Board:** Digilent Arty S7-25 (Spartan-7, xc7s25csga324-1)
 - **Toolchain:** Vivado 2025.2
-- **Integration:** deployed as a memory-mapped peripheral on a MicroBlaze SoC with a C driver (Currently finishing the driver with MicroBlaze SOC)
+- **Integration:** deployed as a memory-mapped peripheral on a MicroBlaze SoC with a C driver (Currently finishing the driver with MicroBlaze SoC)
 
 ## Notes
 
